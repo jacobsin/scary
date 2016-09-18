@@ -5,7 +5,7 @@ import freemarker.log.Logger;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
 import play.Play;
-import play.api.templates.Html;
+import play.twirl.api.Html;
 
 import java.io.*;
 import java.util.HashMap;
