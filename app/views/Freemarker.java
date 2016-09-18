@@ -34,7 +34,7 @@ public class Freemarker {
     // Main API
 
     public static Html view(String template, Arg... args) {
-        Map root = new HashMap();
+        Map<String, Object> root = new HashMap<>();
         for(Arg arg: args) {
             root.put(arg.name, arg.value);
         }
@@ -87,7 +87,7 @@ public class Freemarker {
         }
     }
 
-    public static Arg _(String name, Object value) {
+    public static Arg arg(String name, Object value) {
         return new Arg(name, value);
     }
 
