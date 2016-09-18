@@ -29,7 +29,7 @@ public class Freemarker {
     static {
         cfg.setClassForTemplateLoading(Freemarker.class, "/views/");
         if(Play.isDev()) {
-            cfg.setTemplateUpdateDelay(0);
+            cfg.setTemplateUpdateDelayMilliseconds(0);
         }
     }
 
