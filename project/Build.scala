@@ -1,6 +1,6 @@
-import sbt._
-import Keys._
 import play.Project._
+import sbt.Keys._
+import sbt._
 
 object ApplicationBuild extends Build {
 
@@ -11,7 +11,7 @@ object ApplicationBuild extends Build {
     javaJdbc,
     javaEbean,
     cache,
-    "org.freemarker" % "freemarker" % "2.3.21"
+    "org.freemarker" % "freemarker" % "2.3.23"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(

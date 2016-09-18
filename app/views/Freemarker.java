@@ -24,7 +24,7 @@ public class Freemarker {
         }
     }
 
-    private static Configuration cfg = new Configuration(Configuration.VERSION_2_3_21);
+    private static Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
 
     static {
         cfg.setClassForTemplateLoading(Freemarker.class, "/views/");
@@ -44,7 +44,7 @@ public class Freemarker {
         try {
             Writer out = new StringWriter();
             Thread.currentThread().setContextClassLoader(Play.application().classloader());
-            root.put("Router", new BeansWrapper(Configuration.VERSION_2_3_21).getStaticModels().get("controllers.routes"));
+            root.put("Router", new BeansWrapper(Configuration.VERSION_2_3_23).getStaticModels().get("controllers.routes"));
             cfg.getTemplate(template).process(root, out);
             out.flush();
             return Html.apply(out.toString());
