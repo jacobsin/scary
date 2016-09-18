@@ -1,4 +1,6 @@
-import play.Play.autoImport._
+import play.ebean.sbt.PlayEbean
+import play.sbt.PlayImport._
+import play.sbt.PlayJava
 import sbt.Keys._
 import sbt._
 
@@ -9,17 +11,19 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     javaJdbc,
-    javaEbean,
     cache,
-    "org.freemarker" % "freemarker" % "2.3.23"
+    "org.freemarker" % "freemarker" % "2.3.23",
+    "org.easytesting" % "fest-assert" % "1.4" % Test,
+    specs2 % Test
   )
 
   val main = Project(appName, file("."))
-    .enablePlugins(play.PlayJava)
+    .enablePlugins(PlayJava, PlayEbean)
     .settings(
       version := appVersion,
-      scalaVersion := "2.10.4",
+      scalaVersion := "2.11.6",
       libraryDependencies ++= appDependencies,
+      resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
 
       unmanagedResources in Compile <<= (
         javaSource in Compile,

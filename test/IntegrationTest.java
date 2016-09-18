@@ -1,6 +1,6 @@
 import org.junit.Test;
+import play.mvc.Http;
 import play.mvc.Result;
-import play.test.FakeRequest;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.*;
@@ -18,7 +18,7 @@ public class IntegrationTest {
     @Test
     public void httpTest() {
         running(testServer(3333, fakeApplication(inMemoryDatabase())), () -> {
-            FakeRequest request = fakeRequest("GET", "/freemarker");
+            Http.RequestBuilder request = fakeRequest("GET", "/freemarker");
             Result result = route(request);
             assertThat(contentAsString(result)).isEqualTo("<table>\n" +
                     "    <thead><tr><th>user</th><th>product</th></tr></thead>\n" +
