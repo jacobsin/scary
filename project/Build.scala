@@ -1,6 +1,8 @@
 import play.ebean.sbt.PlayEbean
+import play.routes.compiler.InjectedRoutesGenerator
 import play.sbt.PlayImport._
 import play.sbt.PlayJava
+import play.sbt.routes.RoutesKeys._
 import sbt.Keys._
 import sbt._
 
@@ -24,6 +26,8 @@ object ApplicationBuild extends Build {
       scalaVersion := "2.11.6",
       libraryDependencies ++= appDependencies,
       resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
+
+      routesGenerator := InjectedRoutesGenerator,
 
       unmanagedResources in Compile <<= (
         javaSource in Compile,
