@@ -8,7 +8,7 @@ import static views.Freemarker.view;
 
 public class FreemarkerExample extends Controller {
 
-    public static Result index() {
+    public Result index() {
         return ok(
             view("index.ftl",
                     arg("user", "user"),
