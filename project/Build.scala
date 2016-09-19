@@ -1,3 +1,7 @@
+import com.typesafe.sbt.digest.Import._
+import com.typesafe.sbt.gzip.Import._
+import com.typesafe.sbt.web.Import._
+import com.typesafe.sbt.web.SbtWeb
 import play.ebean.sbt.PlayEbean
 import play.routes.compiler.InjectedRoutesGenerator
 import play.sbt.PlayImport._
@@ -20,14 +24,17 @@ object ApplicationBuild extends Build {
   )
 
   val main = Project(appName, file("."))
-    .enablePlugins(PlayJava, PlayEbean)
+    .enablePlugins(PlayJava, PlayEbean, SbtWeb)
     .settings(
       version := appVersion,
       scalaVersion := "2.11.6",
-      libraryDependencies ++= appDependencies,
+
       resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
 
+      libraryDependencies ++= appDependencies,
       routesGenerator := InjectedRoutesGenerator,
+
+      pipelineStages := Seq(digest, gzip),
 
       unmanagedResources in Compile <<= (
         javaSource in Compile,

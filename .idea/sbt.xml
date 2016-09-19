@@ -19,6 +19,6 @@
         <option name="useOurOwnAutoImport" value="true" />
       </SbtProjectSettings>
     </option>
-    <option name="vmParameters" value="-XX:MaxMetaspaceSize=384M -Dactivator.home=/usr/local/Cellar/typesafe-activator/1.3.10/libexec/" />
+    <option name="vmParameters" value="-XX:MaxMetaspaceSize=384M -Dactivator.home=/usr/local/Cellar/typesafe-activator/1.3.10" />
   </component>
 </project>
