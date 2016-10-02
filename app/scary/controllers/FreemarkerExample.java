@@ -3,8 +3,8 @@ package scary.controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import static scary.views.Freemarker.arg;
-import static scary.views.Freemarker.view;
+import static scary.views.freemarker.Arg.arg;
+import static scary.views.freemarker.Freemarker.view;
 
 public class FreemarkerExample extends Controller {
 

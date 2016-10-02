@@ -1,4 +1,4 @@
-package scary.views;
+package scary.views.freemarker;
 
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.log.Logger;
@@ -76,84 +76,4 @@ public class Freemarker {
         m.find();
         return m.group(1);
     }
-
-    // Args
-
-    public static class Arg {
-        final String name;
-        final Object value;
-
-        public Arg(String name, Object value) {
-            this.name = name;
-            this.value = value;
-        }
-    }
-
-    public static Arg arg(String name, Object value) {
-        return new Arg(name, value);
-    }
-
-    // Exceptions
-
-    public static class TemplateNotFoundException extends RuntimeException {
-
-        private final StackTraceElement[] callerStack;
-
-        public TemplateNotFoundException(String template, StackTraceElement[] stack) {
-            super("Template " + template + " is missing.");
-            callerStack = new StackTraceElement[stack.length - 2];
-            System.arraycopy(stack, 2, callerStack, 0, callerStack.length);
-        }
-
-        public StackTraceElement[] getStackTrace() {
-            return callerStack;
-        }
-
-    }
-
-    public static class ExceptionInTemplate extends play.api.PlayException.ExceptionSource {
-
-        final String template;
-        final Integer line;
-        final Integer position;
-
-        public ExceptionInTemplate(String template, Integer line, Integer position, String description, Throwable cause) {
-            super("Freemarker error", description, cause);
-            this.template = template;
-            this.line = line;
-            this.position = position;
-        }
-
-        public Integer line() {
-            return line;
-        }
-
-        public Integer position() {
-            return position;
-        }
-
-        public String input() {
-            InputStream is = Play.application().resourceAsStream("/views/" + template);
-            if(is != null) {
-                try {
-                    StringBuilder c = new StringBuilder();
-                    byte[] b = new byte[1024];
-                    int read = -1;
-                    while((read = is.read(b)) > 0) {
-                        c.append(new String(b, 0, read));
-                    }
-                    return c.toString();
-                } catch(Throwable e) {
-                    //
-                }
-            }
-            return "(source missing";
-        }
-
-        public String sourceName() {
-            return template;
-        }
-
-    }
-
 }
