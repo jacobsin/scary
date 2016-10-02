@@ -1,4 +1,4 @@
-package views;
+package scary.views;
 
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.log.Logger;
@@ -27,7 +27,7 @@ public class Freemarker {
     private static Configuration cfg = new Configuration(Configuration.VERSION_2_3_23);
 
     static {
-        cfg.setClassForTemplateLoading(Freemarker.class, "/views/");
+        cfg.setClassForTemplateLoading(Freemarker.class, "/scary/views/");
         if(Play.isDev()) {
             cfg.setTemplateUpdateDelayMilliseconds(0);
         }
