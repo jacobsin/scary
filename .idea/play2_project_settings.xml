@@ -8,8 +8,8 @@
             <ProjectSettingsEntry>
               <option name="version" value="2.3.8" />
               <option name="sourceDir" value="$PROJECT_DIR$/app" />
-              <option name="confDir" value="$PROJECT_DIR$/app" />
-              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.4.8.jar" />
+              <option name="confDir" value="C:\Users\jacob\Dev\scary\app" />
+              <option name="playDistrPath" value="$USER_HOME$/.ivy2/cache/com.typesafe.play/play_2.11/jars/play_2.11-2.5.9.jar" />
               <option name="templateImports">
                 <list>
                   <option value="models._" />
@@ -34,7 +34,7 @@
                   <option value="play.libs.F" />
                 </list>
               </option>
-              <option name="uri" value="$PROJECT_DIR$" />
+              <option name="uri" value="/C:/Users/jacob/Dev/scary" />
             </ProjectSettingsEntry>
           </value>
         </entry>
