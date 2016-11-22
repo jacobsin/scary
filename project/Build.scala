@@ -41,7 +41,7 @@ object ApplicationBuild extends Build {
         classDirectory in Compile,
         unmanagedResources in Compile
         ) map { (app, classes, resources) =>
-        IO.copyDirectory(app / "views", classes / "views", overwrite = true)
+        IO.copyDirectory(app / "scary" / "views", classes / "scary" / "views", overwrite = true)
         resources
       }
     )

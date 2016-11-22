@@ -1,10 +1,10 @@
-package controllers;
+package scary.controllers;
 
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import static views.Freemarker.arg;
-import static views.Freemarker.view;
+import static scary.views.freemarker.Arg.arg;
+import static scary.views.freemarker.Freemarker.view;
 
 public class FreemarkerExample extends Controller {
 

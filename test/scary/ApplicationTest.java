@@ -1,3 +1,5 @@
+package scary;
+
 import org.junit.Test;
 import play.twirl.api.Content;
 
@@ -14,7 +16,7 @@ public class ApplicationTest {
 
     @Test
     public void renderTemplate() {
-        Content html = views.html.index.render("Your new application is ready.");
+        Content html = scary.views.html.index.render("Your new application is ready.");
         assertThat(html.contentType()).isEqualTo("text/html");
         assertThat(html.body()).contains("Your new application is ready.");
     }
